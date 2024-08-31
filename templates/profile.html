@@ -12,6 +12,15 @@
             <p><b>Gender:</b> {{ profile.gender }}</p>
             <p><b>Origin:</b> <a href="{{ profile.origin.url }}" target=”_blank”  class="text-decoration-underline">{{ profile.origin.name }}</a></p>
             <p><b>Last known location:</b> <a href="{{ profile.location.url }}"target=”_blank”  class="text-decoration-underline">{{ profile.location.name }}</a></p>
+            <!-- Verifique se profile.location e profile.location.url estão disponíveis -->
+            {% if profile.location and profile.location.url %}
+            {% set location_id = profile.location.url.split('/')[-1] %}
+            <a href="/location/{{ location_id }}" class="d-inline-block btn btn-dark fw-semibold shadow-sm">
+                Ver Localização
+            </a>
+            {% else %}
+                <p class="mt-3 text-danger">Localização não disponível</p>
+            {% endif %}
         </div>
     </div>
 </div>
