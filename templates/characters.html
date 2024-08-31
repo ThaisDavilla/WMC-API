@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+  {% block content %}
+        <div class="row bg-light">
+            {% for character in characters %}
+
+            <div class="col-sm-3 col-6">
+
+                <img src="{{ character.image }}" alt="{{ character.name }}" class="img-fluid rounded"/>
+                
+                <h3 class="h5 mt-3 mb-3">{{ character.name }}</h3>
+                <p>
+                  <a href="/profile/{{ character.id }}"
+                  class="btn btn-outline-dark">Ver mais</a>
+
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </main>
+</body>
+</html>

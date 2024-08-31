@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center align-items-center">
+    <div class="row  border border-black rounded">
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <img src="{{ profile.image }}" alt="{{ profile.name }}" class="img-fluid rounded"/>
+        </div>
+        <div class="col-md-8 p-3 h5 text-start">
+            <h1>{{ profile.name }}</h1>
+            <p><b>Species:</b> {{ profile.species }}</p>
+            <p><b>Gender:</b> {{ profile.gender }}</p>
+            <p><b>Origin:</b> <a href="{{ profile.origin.url }}" target=”_blank”  class="text-decoration-underline">{{ profile.origin.name }}</a></p>
+            <p><b>Last known location:</b> <a href="{{ profile.location.url }}"target=”_blank”  class="text-decoration-underline">{{ profile.location.name }}</a></p>
+        </div>
+    </div>
+</div>
+<br>
+<div>
+    <h2>Episodes</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for episode in profile.episodes %}
+            <tr>
+                <td>{{ episode.id }}</td>
+                <td>{{ episode.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
