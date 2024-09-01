@@ -12,6 +12,15 @@ def get_list_characters_page():
     
     return render_template("characters.html", characters=dict["results"])
 
+@app.route('/episodios')
+def get_episodes():
+    url = 'https://rickandmortyapi.com/api/episode'
+    response = urllib.request.urlopen(url)
+    data = response.read()  
+    dict = json.loads(data)
+
+    return render_template('episodes.html', episodes=dict['results'])    
+
 
 @app.route("/profile/<id>")
 def get_profile(id):
@@ -19,6 +28,7 @@ def get_profile(id):
     response = urllib.request.urlopen(url)
     data = response.read()
     character = json.loads(data)
+
 
     #Criação do dicionário de episódio, bem como a iteraçaõ sobre episódio.
     #É exatamente a mesma lógica que a demonstração de perfil.
