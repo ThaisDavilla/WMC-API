@@ -84,3 +84,37 @@ def location_profile(id):
     except Exception as e:
         print(f'Erro inesperado: {e}')
         return render_template('404.html'), 404
+
+# rota location
+@app.route('/locations')
+def get_locations():
+    url = 'https://rickandmortyapi.com/api/location'
+    response = urllib.request.urlopen(url)
+    data = response.read()
+    locations_data = json.loads(data)  # Extrai a lista de localizações
+
+    locations = []
+
+    for location in locations_data['results']:
+        residents = []
+
+        # Loop para pegar os dados de cada residente (personagem) em uma localização
+        for resident_url in location['residents']:
+            character_response = urllib.request.urlopen(resident_url)
+            character_data = character_response.read()
+            character = json.loads(character_data)
+            residents.append({
+                "id": character["id"],
+                "name": character["name"],
+                "url": "/profile/" + str(character["id"])
+            })
+
+        locations.append({
+            "id": location["id"],
+            "name": location["name"],
+            "type": location["type"],
+            "dimension": location["dimension"],
+            "residents": residents
+        })
+
+    return render_template('locations.html', locations=locations)
