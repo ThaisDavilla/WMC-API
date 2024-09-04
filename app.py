@@ -118,3 +118,26 @@ def get_locations():
         })
 
     return render_template('locations.html', locations=locations)
+
+@app.route("/episodes/<id>")
+def get_episode(id):
+    url = "https://rickandmortyapi.com/api/episode/" + id
+    response = urllib.request.urlopen(url)
+    data = response.read()
+    episode = json.loads(data)
+
+    characters = []
+
+    for character_url in episode['characters']:
+        character_response = urllib.request.urlopen(character_url)
+        character_data = character_response.read()
+        character = json.loads(character_data)
+        characters.append({
+            "id": character["id"],
+            "name": character["name"],  # Inclua o nome do personagem se for necessário
+            "url": "/profile/" + str(character["id"])
+        })
+
+    episode['characters'] = characters 
+
+    return render_template("episode.html", episode=episode)
