@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Botão de Voltar -->
+<a href="/" class="d-flex align-items-center text-dark mb-3 text-decoration-none">
+    <svg class="me-2" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+    Back of Characters
+</a>
+
+<h1>List of Locations</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Dimension</th>
+        <th scope="col">Residents</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for location in locations %}
+      <tr>
+        <th scope="row">{{ location.id }}</th>
+        <td>{{ location.name }}</td>
+        <td>{{ location.type }}</td>
+        <td>{{ location.dimension }}</td>
+        <td>
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#locationModal{{ location.id }}">
+            Views Residents
+          </button>
+        </td>
+      </tr>
+
+      <!-- Modal -->
+      <div class="modal fade" id="locationModal{{ location.id }}" tabindex="-1" aria-labelledby="locationModalLabel{{ location.id }}" aria-hidden="true">
+        <div class="modal-dialog modal-lg  modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="locationModalLabel{{ location.id }}">Residents of {{ location.name }}</h5>
+            
+            </div>
+            <div class="modal-body">
+
+              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+                {% for resident in location.residents %}
+                <div class="col">
+
+                  <div class="card h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <img src="{{ resident.image }}" class="img-thumbnail me-2" alt="{{ resident.name }}" style="width: 90px; height: 90px;">
+                            <h6 class="card-title mb-1"> <span class="fst-italic" tyle="width: 6rem;">#{{ resident.id }}</span> -  {{ resident.name }}</h6>
+                    </div>
+                      <a href="/profile/{{ resident.id }}" class="btn btn-dark btn-sm mt-2 text-center">View Profile</a>
+                </div>
+
+                </div>
+                {% endfor %}
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+{% endblock %}

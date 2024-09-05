@@ -96,6 +96,7 @@ def get_locations():
     locations = []
 
     for location in locations_data['results']:
+        
         residents = []
 
         # Loop para pegar os dados de cada residente (personagem) em uma localização
@@ -106,7 +107,7 @@ def get_locations():
             residents.append({
                 "id": character["id"],
                 "name": character["name"],
-                "url": "/profile/" + str(character["id"])
+                'image': character['image']  # Adiciona o campo de imagem
             })
 
         locations.append({
