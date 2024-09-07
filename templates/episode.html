@@ -2,29 +2,29 @@
 
 {% block content %}
 <div class="container mt-5 mb-5 d-flex justify-content-center align-items-center">
-    <div class="row bg-info bg-opacity-10 border border-info rounded text-white">
+    <div class="row border border-black rounded text-dark">
         <div class="row p-2">
             <h2>{{ episode.name }}</h2>
-            <p><b>Data de Lançamento:</b> {{ episode.air_date }}</p>
-            <p><b>Código do Episódio:</b> {{ episode.episode }}</p>
-            <p><b>Episódio ID:</b> {{ episode.id }}</p>
+            <p><b>Air_date:</b> {{ episode.air_date }}</p>
+            <p><b>Episode Code:</b> {{ episode.episode }}</p>
+            <p><b>Episode ID:</b> {{ episode.id }}</p>
         </div>
     </div>
 </div>
 
 <div class="row justify-content-center text-center">
-    <table class="table table-dark ">
+    <table class="table table-white ">
         <thead>
             <tr>
-                <th scope="col">Personagens ID</th>
-                <th scope="col">Personagens Profile</th>
+                <th scope="col">Character ID</th>
+                <th scope="col">Character Profile</th>
             </tr>
         </thead>
         <tbody>
             {% for character in episode.characters %}
             <tr>
                 <td>{{ character.id }}</td>
-                <td><a href="{{ character.url }}" target="_blank" class="btn btn-outline-info btn-sm">Ver Perfil</a></td>
+                <td><a href="{{ character.url }}" target="_blank"class="d-inline-block btn btn-dark shadow-sm"  style="font-size:12px color">View Profile</a></td>
             </tr>
             {% endfor %}
         </tbody>
