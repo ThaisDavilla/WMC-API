@@ -47,11 +47,11 @@ Papéis e Responsabilidades:
 
 - Arielle Ribeiro de Oliveira Tavares: Responsável pelo arquivo de [episodes.html] e por prestar auxílio a qualquer integrante com dificuldades.
 
-- Elizabete de Souza Fabri: Responsável pela [Rota perfil da localização] e por prestar auxílio a qualquer integrante com dificuldades.
+- Elizabete de Souza Fabri: Responsável pela [Rota perfil da localização], por prestar auxílio a qualquer integrante com dificuldades e também foi também uma das participantes do vídeo.
 
-- Ingrid Stefhani Silva Munhoz: Tech Leader da squad, responsável por criar o repositório oficial para envio de cada commit e aprovações das pull requests e capacitar as integrantes no uso do Github Projects. Responsável pelo [Perfil do personagem] e por prestar auxílio a qualquer integrante com dificuldades.
+- Ingrid Stefhani Silva Munhoz: Tech Leader da squad, responsável por criar o repositório oficial para envio de cada commit e aprovações das pull requests e capacitar as integrantes no uso do Github Projects. Responsável pelo [Perfil do personagem], por prestar auxílio a qualquer integrante com dificuldades e também foi também uma das participantes do vídeo.
 
-- Livia Matias da Silva: Responsável pela [Rota perfil do episódio], Gravações dos Encontros e por prestar auxílio a qualquer integrante com dificuldades.
+- Livia Matias da Silva: Responsável pela [Rota perfil do episódio], por prestar auxílio a qualquer integrante com dificuldades e também foi responsável por gravaar o vídeo do desafio.
 
 - Maria Betânia Paiva Nunes: Infelizmente não conseguimos nenhum retorno da Maria Betania até o momento deste commit, realizado no dia 24/08/24.
 
